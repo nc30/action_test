@@ -2,7 +2,8 @@
 
 [[ -e "dist" ]] || mkdir dist
 touch dist/testfile.php
+zip -r dist/distfile.zip dist/testfile.php
 
 echo '' > dist/latest
-echo testfile.php >> dist/latest
+echo distfile.zip >> dist/latest
 exit 0

@@ -48,6 +48,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./dist/testfile.php
-        asset_name: testfile.php
+        asset_path: ./dist/distfile.zip
+        asset_name: testfile.zip
         asset_content_type: application/zip
