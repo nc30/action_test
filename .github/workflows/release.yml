@@ -35,6 +35,8 @@ jobs:
     - run : echo "::set-env name=DIST_VERSION::$(echo ${{ github.ref }} | sed -E 's/^refs\/tags\/v?(.*)$/\1/')"
     - run : echo ${DIST_VERSION}
     - run : echo $DIST_VERSION
+    - run : echo ${{ env.DIST_VERSION }}
+    - run : echo test-version-${{ env.DIST_VERSION }}.zip
     # - run : echo ${{ DIST_VERSION }}
     # - run : echo '::set-env name=FOO::aaaaaa'
     # - run : echo $FOO
