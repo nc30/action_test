@@ -7,6 +7,7 @@ on:
     branches:
     - master
 
+
 env:
   plugin_name: plugin_name
 
