@@ -29,7 +29,7 @@ jobs:
         CI: true
     - run : ls dist
     - run : cat dist/latest
-    - run : echo ${{ github.ref }}
+    - run : echo ${{ github.ref }} | sed -E 's/^refs\/tags\/v?(.*)$/\1/'
 
     - name: create release
       id: create_release
