@@ -34,7 +34,7 @@ jobs:
         echo '::set-env name=DIST_VERSION::$DIST_VERSION'
     - run : echo ${DIST_VERSION}
     - run : echo $DIST_VERSION
-    - run : echo ${{ DIST_VERSION }}
+    # - run : echo ${{ DIST_VERSION }}
     # - run : echo '::set-env name=FOO::aaaaaa'
     # - run : echo $FOO
 
