@@ -6,6 +6,9 @@ on:
     - "v*"
     # branches: [master]
 
+env:
+  plugin_name: plugin_name
+
 jobs:
   release:
     name: create dist
@@ -27,19 +30,11 @@ jobs:
         npm run dist
       env:
         CI: true
-    - run : ls dist
-    - run : cat dist/latest
-    # - run : |
-    #     echo ${{ github.ref }} | sed -E 's/^refs\/tags\/v?(.*)$/\1/' | read DIST_VERSION
-    #     echo '::set-env name=DIST_VERSION::$DIST_VERSION'
     - run : echo "::set-env name=DIST_VERSION::$(echo ${{ github.ref }} | sed -E 's/^refs\/tags\/v?(.*)$/\1/')"
     - run : echo ${DIST_VERSION}
     - run : echo $DIST_VERSION
     - run : echo ${{ env.DIST_VERSION }}
-    - run : echo test-version-${{ env.DIST_VERSION }}.zip
-    # - run : echo ${{ DIST_VERSION }}
-    # - run : echo '::set-env name=FOO::aaaaaa'
-    # - run : echo $FOO
+    - run : echo ${{ env.plugin_name }}-v${{ env.DIST_VERSION }}.zip
 
     - name: create release
       id: create_release
