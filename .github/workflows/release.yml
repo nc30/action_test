@@ -29,9 +29,10 @@ jobs:
         CI: true
     - run : ls dist
     - run : cat dist/latest
-    - run : |
-        echo ${{ github.ref }} | sed -E 's/^refs\/tags\/v?(.*)$/\1/' | read DIST_VERSION
-        echo '::set-env name=DIST_VERSION::$DIST_VERSION'
+    # - run : |
+    #     echo ${{ github.ref }} | sed -E 's/^refs\/tags\/v?(.*)$/\1/' | read DIST_VERSION
+    #     echo '::set-env name=DIST_VERSION::$DIST_VERSION'
+    - run : echo "::set-env name=DIST_VERSION::$(echo ${{ github.ref }} | sed -E 's/^refs\/tags\/v?(.*)$/\1/')"
     - run : echo ${DIST_VERSION}
     - run : echo $DIST_VERSION
     # - run : echo ${{ DIST_VERSION }}
