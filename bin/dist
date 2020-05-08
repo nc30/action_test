@@ -2,4 +2,6 @@
 [[ -e "dist" ]] || mkdir dist
 touch dist/testfile.php
 
+echo '' > dist/latest
+echo testfile.php >> dist/latest
 exit 0
