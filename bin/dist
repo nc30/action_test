@@ -1,0 +1,5 @@
+
+[[ -e "dist" ]] || mkdir dist
+touch dist/testfile.php
+
+exit 0
